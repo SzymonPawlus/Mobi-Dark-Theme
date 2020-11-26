@@ -1,8 +1,9 @@
 const config = { attributes: true, childList: false, subtree: false };
-const MainColor = "#000"
-const FontColor = "#ddd"
+const MainColor = "#111"
+const FontColor = "#eee"
 const BackColor = "#006b9f"
 const BackHover = "#117caf"
+// MainColor: #111 and FontColor: #eee gives the best results
 
 function SetDark(){
   console.log("Hello Dark Theme");
@@ -48,7 +49,7 @@ function SetDark(){
   pages.forEach(page => {
     page.style["background-color"] = MainColor
     page.style["color"] = FontColor
-    if(page.type == "submit"){
+    if(page.type === "submit"){
       page.style["background-color"] = BackColor
     }
   });
