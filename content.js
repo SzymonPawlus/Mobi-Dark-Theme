@@ -16,6 +16,9 @@ function SetDark(){
   head = document.querySelector("#head");
   head.style["background-color"] = MainColor
 
+  sync = document.querySelector("#sync");
+  sync.style["background-color"] = MainColor
+
   nav = document.querySelector("#nav");
   nav.style["background-color"] = BackColor
 
