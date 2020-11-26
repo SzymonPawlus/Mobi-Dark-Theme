@@ -1,7 +1,11 @@
 {
   "manifest_version": 2,
   "name": "Mobidziennik Dark Theme",
-  "version": "0.1",
+  "version": "0.5",
+  "description":"Dark Theme for Mobidziennik extension",
+  "icons":{
+    "512":"img/mobi-logo.png"
+  },
   "content_scripts": [
   {
     "matches": [
