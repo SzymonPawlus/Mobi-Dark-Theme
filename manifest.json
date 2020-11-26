@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "name": "Mobidziennik Dark Theme",
+  "version": "0.1",
+  "content_scripts": [
+  {
+    "matches": [
+      "https://*.mobidziennik.pl/*"
+    ],
+    "js": ["content.js"]
+  }
+  ],
+  "permissions": [
+    "tabs"
+  ]
+}
