@@ -19,6 +19,7 @@ const SettingsMobile = [{Selector: "html", Style: "background-color", Color: Mai
       {Selector: ".panel", Style: "background-color", Color: MainColor, Imp: false},
       {Selector: "input", Style: "background-color", Color: MainColor, Imp: false},
       {Selector: "input", Style: "color", Color: FontColor, Imp: false},
+      {Selector: "span", Style: "color", Color: FontColor, Imp: false},
       {Selector: 'input[type="submit"]', Style: "background-color", Color: BackColor, Imp: false},
       {Selector: "textarea", Style: "background-color", Color: MainColor, Imp: false},
       {Selector: "textarea", Style: "color", Color: FontColor, Imp: false},
