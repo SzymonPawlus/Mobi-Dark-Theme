@@ -23,7 +23,7 @@ W tym momencie, rozszerzenie zmieni stronę mobidziennika w tryb ciemny od razu 
 # ENG
 ## Mobi-Dark-Theme
 
-It's an extension for chromium browsers, which allows you to change font and background colors on mobidziennik sites on both mobie and PC version
+It's an extension for chromium browsers, which allows you to change font and background colors on mobidziennik sites on both mobile and PC version
 
 ## Installation
 1. Clone git repostiory or download and unpack .zip package on your drive
