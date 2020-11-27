@@ -1,6 +1,6 @@
 const config = { attributes: true, childList: false, subtree: false};
 const MainColor = "#111"
-const FontColor = "#eee"
+const FontColor = "#ccc"
 const BackColor = "#006b9f"
 const BackHover = "#117caf"
 // MainColor: #111 and FontColor: #eee gives the best results
@@ -119,10 +119,5 @@ function Load() {
         observer2.observe(content2, config);
     } else {
         SetTheme(SettingsStat);
-        let Setting = () => SetTheme(SettingsStat)
-        let content = document.querySelector(".ajax")
-        const observer = new MutationObserver(Setting);
-        observer.observe(content, config);
     }
 }
-
