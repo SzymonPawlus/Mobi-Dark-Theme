@@ -11,12 +11,9 @@ Rozszerzenie do przeglądarek opartych na chromium, pozwalające na zmianę kolo
 4. Na pasku ustawień wybierz opcję "Załaduj rozpakowane" i wybierz pobrany/skolnowany folder
 
 ## Używanie
-Aktualnie, rozszerzenie znajduje się w fazie alpha i nie istnieją jeszcze opcje obsługi rozszerzenia.
-W tym momencie, rozszerzenie zmieni stronę mobidziennika w tryb ciemny od razu po instalacji (Wymagane odświerzenie strony).
+W aktualnym stadium rozwoju aplikacji, opcje aplikacji zawierają jedynie możliwość włączania i wyłączania ciemnego tła na stronie mobidziennika. Ostatnie ustawienie tła jest zapisywane po wyłączeniu przeglądarki.
 
 ## Plany
-- Stworzenie okna ustawień umożliwiającego wyłączenie rozszerzenia
-- Stworzenie wyskakującego okna po naciśnięciu ikony na górnym pasku
 - Kreator styli w ustawieniach - Możliwość stworzenia swojego układu kolorów
 - Zapisywanie styli w pamięci przeglądarki
 
@@ -33,12 +30,9 @@ It's an extension for chromium browsers, which allows you to change font and bac
 4. On settings bar click "Load unpacked" option and choose downoloaded/cloned folder
 
 ## Usage
-Currently the extension is in alpha and there are no settings yet.
-For now, the extension will immediately turn on darkmode in mobidziennik (Page refresh is required).
+Currently, the only app setting is turning on and off the dark theme with setting or pop-up page. Theme which was used last time is saved after the browser closes
 
 ## Plans
-- Create settings window, which allows you to turn off extension
-- Create popup window
 - Style creator in settings, allowing you to create your own color set in mobidziennik
 - Saving styles in browser
 
