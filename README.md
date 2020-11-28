@@ -30,7 +30,7 @@ It's an extension for chromium browsers, which allows you to change font and bac
 4. On settings bar click "Load unpacked" option and choose downoloaded/cloned folder
 
 ## Usage
-Currently, the only app setting is turning on and off the dark theme with setting or pop-up page. Theme which was used last time is saved after the browser closes
+Currently, the only app setting is turning on and off the dark theme with setting or pop-up page. Theme which was used last time is saved after the browser closes.
 
 ## Plans
 - Style creator in settings, allowing you to create your own color set in mobidziennik
