@@ -2,21 +2,19 @@
   "manifest_version": 2,
   "name": "Mobidziennik Dark Theme",
   "version": "0.5",
-  "description":"Dark Theme for Mobidziennik extension",
-  "options_page":"Settings/index.html",
-  "browser_action":{
-    "default_popup":"Popup/index.html"
+  "description": "Dark Theme for Mobidziennik extension",
+  "options_page": "settings/index.html",
+  "browser_action": {
+    "default_popup": "popup/index.html"
   },
-  "icons":{
-    "512":"img/mobi-logo.png"
+  "icons": {
+    "512": "img/mobi-logo.png"
   },
   "content_scripts": [
-  {
-    "matches": [
-      "https://*.mobidziennik.pl/*"
-    ],
-    "js": ["content.js"]
-  }
+    {
+      "matches": [ "https://*.mobidziennik.pl/*" ],
+      "js": [ "content.js" ]
+    }
   ],
   "permissions": [
     "tabs",
