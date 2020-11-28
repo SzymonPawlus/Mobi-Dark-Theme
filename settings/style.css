@@ -1,38 +1,44 @@
-body{
-    width: 300px;
-    background: #111111;
-    color: #eeeeee;
-    font-size: 1.3rem;
+body {
+    background: #111;
+    color: #eee;
 }
 
-.content{
+.control {
     margin: auto;
+    width: fit-content;
+    display: flex;
+}
+
+.label {
     display: flex;
     align-items: center;
-    text-align: center;
-    width: max-content;
-    padding: 50px 0;
 }
 
-.separator{
+.separator {
     width: 30px;
+}
+
+.content {
+    max-width: 500px;
+    margin: auto;
+    font-size: 1.3rem;
+    padding-top: 50px;
 }
 
 .switch {
     position: relative;
     display: inline-block;
-    width: 40px;
-    height: 23px;
+    width: 60px;
+    height: 34px;
+    margin: auto;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-/* The slider */
 .slider {
     position: absolute;
     cursor: pointer;
@@ -48,8 +54,8 @@ body{
 .slider:before {
     position: absolute;
     content: "";
-    height: 17px;
-    width: 17px;
+    height: 26px;
+    width: 26px;
     left: 4px;
     bottom: 4px;
     background-color: white;
@@ -66,12 +72,11 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-    -webkit-transform: translateX(17px);
-    -ms-transform: translateX(17px);
-    transform: translateX(17px);
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
 }
 
-/* Rounded sliders */
 .slider.round {
     border-radius: 34px;
 }

@@ -1,144 +1,87 @@
-const config = { attributes: true, childList: false, subtree: false};
-const MainColor = "#111"
-const FontColor = "#ccc"
-const BackColor = "#006b9f"
-const BackHover = "#117caf"
-// MainColor: #111 and FontColor: #eee gives the best results
+const _mainColor = "#111", _fontColor = "#ccc", _backColor = "#006b9f", _backHover = "#117caf";
+const config = { attributes: true, childList: false, subtree: false };
 
-let def = []
-let defSet = false
+const settingsMobile = [
+    { selectors: [ "html", ".pages", ".section-head", ".panel", "input", "textarea", ".page-marks-prt-subj-acc" ], style: "background-color", value: _mainColor, important: false },
+    { selectors: [ "#head", "#sync" ], style: "background-color", value: _mainColor, important: false, },
+    { selectors: [ "#nav", 'input[type="submit"]' ], style: "background-color", value: _backColor, important: false },
+    { selectors: [ "#head" ], style: "border-bottom", value: "0px", important: false },
+    { selectors: [ "#nav-head" ], style: "border-bottom", value: "1px solid " + _backHover, important: false, },
+    { selectors: [ "#nav-body-pc" ], style: "border-top", value: "1px solid " + _backHover, important: false, },
+    { selectors: [ "#nav-head-my-account", ".tabs-tab > div", ".page-head", ".tabs-tab > div", ".floating-btn", ".panel-head" ], style: "background", value: _backColor, important: false, },
+    { selectors: [ "input", "span", "textarea", ".page-marks-prt-subj-acc", ".page-marks-prt-subj-acc > .acc-elm > .acc-elm-head", "body", ".page-head-title" ], style: "color", value: _fontColor, important: false },
+    { selectors: [ ".page-marks-prt-subj-acc > .acc-elm > .acc-elm-head" ], style: "text-shadow", value: "0 0 2px #fff", important: false, },
+    { selectors: [ ".tabs-tab.act", ".acc-elm-head-left i", ".section-head-left i" ], style: "color", value: _backColor, important: false },
+    { selectors: [ ".content1" ], style: "color", value: _backColor, important: true },
+    { selectors: [ "a.nav-body-elm.act" ], style: "background", value: _backHover, important: true, },
+    { selectors: [ ".nav-head-my-account-elm.act" ], style: "background", value: _backHover, important: false, },
+];
 
-const SettingsMobile = [{Selector: "html", Style: "background-color", Color: MainColor, Imp: false},
-      {Selector: "body", Style: "color", Color: FontColor, Imp: false},
-      {Selector: "#head", Style: "background-color", Color: MainColor, Imp: false},
-      {Selector: "#sync", Style: "background-color", Color: MainColor, Imp: false},
-      {Selector: "#nav", Style: "background-color", Color: BackColor, Imp: false},
-      {Selector: "#head", Style: "border-bottom", Color: "0px", Imp: false},
-      {Selector: "#nav-head", Style: "border-bottom", Color: "1px solid " + BackHover, Imp: false},
-      {Selector: "#nav-body-pc", Style: "border-top", Color: "1px solid " + BackHover, Imp: false},
-      {Selector: ".pages", Style: "background-color", Color: MainColor, Imp: false},
-      {Selector: "#nav-head-my-account", Style: "background", Color: BackColor, Imp: false},
-      {Selector: ".section-head", Style: "background-color", Color: MainColor, Imp: false},
-      {Selector: ".panel", Style: "background-color", Color: MainColor, Imp: false},
-      {Selector: "input", Style: "background-color", Color: MainColor, Imp: false},
-      {Selector: "input", Style: "color", Color: FontColor, Imp: false},
-      {Selector: "span", Style: "color", Color: FontColor, Imp: false},
-      {Selector: 'input[type="submit"]', Style: "background-color", Color: BackColor, Imp: false},
-      {Selector: "textarea", Style: "background-color", Color: MainColor, Imp: false},
-      {Selector: "textarea", Style: "color", Color: FontColor, Imp: false},
-      {Selector: ".page-marks-prt-subj-acc", Style: "background-color", Color: MainColor, Imp: false},
-      {Selector: ".page-marks-prt-subj-acc", Style: "color", Color: FontColor, Imp: false},
-      {Selector: ".page-marks-prt-subj-acc > .acc-elm > .acc-elm-head", Style: "text-shadow", Color: "0 0 2px #fff", Imp: false},
-      {Selector: ".page-marks-prt-subj-acc > .acc-elm > .acc-elm-head", Style: "color", Color: FontColor, Imp: false},
-      {Selector: ".tabs-tab > div", Style: "background", Color: BackColor, Imp: false},
-      {Selector: ".page-head", Style: "background", Color: BackColor, Imp: false},
-      {Selector: ".tabs-tab > div", Style: "background", Color: BackColor, Imp: false},
-      {Selector: ".tabs-tab.act", Style: "color", Color: BackColor, Imp: false},
-      {Selector: ".floating-btn", Style: "background", Color: BackColor, Imp: false},
-      {Selector: ".page-head-title", Style: "color", Color: FontColor, Imp: false},
-      {Selector: ".color1", Style: "color", Color: BackColor, Imp: true},
-      {Selector: ".panel-head", Style: "background", Color: BackColor, Imp: false},
-      {Selector: "a.nav-body-elm.act", Style: "background", Color: BackHover, Imp: true},
-      {Selector: ".nav-head-my-account-elm.act", Style: "background", Color: BackHover, Imp: false},
-      {Selector: ".acc-elm-head-left i", Style: "color", Color: BackColor, Imp: false},
-      {Selector: ".section-head-left i", Style: "color", Color: BackColor, Imp: false},
-     ]
+const settingsStandard = [
+    { selectors: [ "html" ], style: "background-color", value: _mainColor, important: false },
+    { selectors: [ "body", "a.info", ".fc-day-header", ".fc-button", "ul.dropdown a:link, ul.dropdown a:visited", "div.logo h1", "table.spis a" ], style: "color", value: _fontColor, important: true },
+    { selectors: [ "body", ".komorka_kolor", ".komorka_biala", ".fc-day-header", ".stronnicowanie > a", ".dropdown > li:hover" ], style: "background", value: _mainColor, important: true },
+    { selectors: [ ".header", ".content", ".form input.form-control", ".wiadomosc_tresc", ".komorka_biala", ".plansc_godz > div > span", ".plansc_godz > div > span b", ".fc-day" ], style: "background", value: _mainColor, important: false },
+    { selectors: [ ".form input.form-control", "a.button_right", ".lekcja_data", ".button", 'input[type="submit"]', "a.link1", ".plansc_godz > div > span", ".stronnicowanie > a" ], style: "color", value: _fontColor, important: false, },
+    { selectors: [ ".button", 'input[type="submit"]', "a.button_right" ], style: "background-color", value: _backColor, important: false, },
+    { selectors: [ "div#top_green", "div#menu_gray", ".plansc_cnt > .plansc_cnt_w > .bx.pz" ], style: "background", value: _backColor, important: false, },
+    { selectors: [ "h1" ], style: "text-shadow", value: "1px 1px 0 #333", important: true, },
+    { selectors: [ "h1", ".plansc_godz > div > span b" ], style: "color", value: _backColor, important: false },
+    { selectors: [ ".fc-button", "ul.dropdown ul" ], style: "background", value: _backColor, important: true, },
+    { selectors: [ "ul.dropdown li a.current" ], style: "background", value: _backHover, important: true, },
+    { selectors: [ ".fb_iframe_widget" ], style: "display", value: "none", important: true, },
+    { selectors: [ ".wiadomosc_tresc > p > span", ".wiadomosc_tresc > p > strong > span", ".wiadomosc_tresc > p > strong > span > span", "#bottom > div", "#bottom > div > a", ".logo > h1", ".dropdown > li:hover", ".ajax > div > h3" ], style: "color", value: _fontColor, important: true },
+    { selectors: [ ".fright > .button", "#wyszukiwarka > fieldset > input", ".stronnicowanie > a" ], style: "border", value: "solid 1px " + _mainColor, important: true },
+    { selectors: [ ".komorka_biala", ".zasoby", ".okienko_informacyjne" ], style: "background", value: "none", important: true }
+];
 
-const SettingsStat = [
-    {Selector: "html", Style: "background-color", Color: MainColor, Imp: false},
-    {Selector: "body", Style: "color", Color: FontColor, Imp: true},
-    {Selector: "body", Style: "background", Color: MainColor, Imp: true},
-    {Selector: ".header", Style: "background", Color: MainColor, Imp: false},
-    {Selector: ".content", Style: "background", Color: MainColor, Imp: false},
-    {Selector: ".form input.form-control", Style: "background", Color: MainColor, Imp: false},
-    {Selector: ".form input.form-control", Style: "color", Color: FontColor, Imp: false},
-    {Selector: ".button", Style: "background-color", Color: BackColor, Imp: false},
-    {Selector: ".button", Style: "color", Color: FontColor, Imp: false},
-    {Selector: 'input[type="submit"]', Style: "background-color", Color: BackColor, Imp: false},
-    {Selector: 'input[type="submit"]', Style: "color", Color: FontColor, Imp: false},
-    {Selector: 'a.button_right', Style: "background-color", Color: BackColor, Imp: false},
-    {Selector: 'a.button_right', Style: "color", Color: FontColor, Imp: false},
-    {Selector: '.lekcja_data', Style: "color", Color: FontColor, Imp: false},
-    {Selector: 'div#top_green', Style: "background", Color: BackColor, Imp: false},
-    {Selector: 'div#menu_gray', Style: "background", Color: BackColor, Imp: false},
-    {Selector: '.komorka_kolor', Style: "background", Color: MainColor, Imp: true},
-    {Selector: '.komorka_biala', Style: "background", Color: MainColor, Imp: true},
-    {Selector: '.wiadomosc_tresc', Style: "background", Color: MainColor, Imp: false},
-    {Selector: '.komorka_biala', Style: "background", Color: MainColor, Imp: false},
-    {Selector: 'a.link1', Style: "color", Color: FontColor, Imp: false},
-    {Selector: 'h1', Style: "text-shadow", Color: "0 #e3e3e3", Imp: false},
-    {Selector: 'h1', Style: "color", Color: BackColor, Imp: false},
-    {Selector: '.plansc_godz > div > span', Style: "background", Color: MainColor, Imp: false},
-    {Selector: '.plansc_godz > div > span b', Style: "background", Color: MainColor, Imp: false},
-    {Selector: '.plansc_godz > div > span b', Style: "color", Color: BackColor, Imp: false},
-    {Selector: '.plansc_godz > div > span', Style: "color", Color: FontColor, Imp: false},
-    {Selector: '.plansc_cnt > .plansc_cnt_w > .bx.pz', Style: "background", Color: BackColor, Imp: false},
-    {Selector: 'a.info', Style: "color", Color: FontColor, Imp: true},
-    {Selector: '.fc-day', Style: "background", Color: MainColor, Imp: false},
-    {Selector: '.fc-day-header', Style: "background", Color: MainColor, Imp: true},
-    {Selector: '.fc-day-header', Style: "color", Color: FontColor, Imp: true},
-    {Selector: '.fc-button', Style: "color", Color: FontColor, Imp: true},
-    {Selector: '.fc-button', Style: "background", Color: BackColor, Imp: true},
-    {Selector: 'ul.dropdown li a.current', Style: "background", Color: BackHover, Imp: true},
-    {Selector: 'ul.dropdown ul', Style: "background", Color: BackColor, Imp: true},
-    {Selector: 'ul.dropdown a:link, ul.dropdown a:visited', Style: "color", Color: FontColor, Imp: true},
-    {Selector: '.fb_iframe_widget', Style: "display", Color: "none", Imp: true},
-    {Selector: 'div.logo h1', Style: "color", Color: FontColor, Imp: true},
-    {Selector: 'table.spis a', Style: "color", Color: FontColor, Imp: true},
-]
-
-function SetTheme(Theme){
-    console.log("Setting Theme....")
+function setTheme(theme) {
     try {
-        Theme.forEach(value => {
-            let elements = document.querySelectorAll(value.Selector);
-            if (!value.Imp) {
-                elements.forEach(element => {
-                    element.style[value.Style] = value.Color;
-                })
-
+        theme.forEach((style) => {
+            let elements = document.querySelectorAll(style.selectors);
+            if (!style.important) {
+                elements.forEach((element) => {
+                    element.style[style.style] = style.value;
+                });
             } else {
-                elements.forEach(element => {
+                elements.forEach((element) => {
                     let now = element.getAttribute("style");
-                    element.setAttribute("style", now + "; " + value.Style + ": " + value.Color + " !important")
-                })
+                    element.setAttribute(
+                        "style",
+                        now + "; " + style.style + ": " + style.value + " !important"
+                    );
+                });
             }
         });
-    }catch(e){
-        console.log(e)
+    } catch (e) {
+        console.log(e);
     }
 }
 
-window.onload = Load;
+window.onload = load;
 
-function Load() {
+function load() {
     chrome.storage.sync.get("value", function (data) {
-        const obj = JSON.parse(JSON.stringify(data));
-        if(obj.value) {
-            SetThemes()
+        const object = JSON.parse(JSON.stringify(data));
+        if (object.value) {
+            setThemes();
         }
-
     });
-
 }
 
-function SetThemes(){
+function setThemes() {
     if (window.location.href.indexOf("mobile") > -1) {
-        SetTheme(SettingsMobile)
-        let Setting = () => SetTheme(SettingsMobile)
+        setTheme(settingsMobile);
+        let setting = () => setTheme(settingsMobile);
         let content = document.querySelector("#sync");
         let content2 = document.querySelector("#dim");
-        const observer = new MutationObserver(Setting);
+        const observer = new MutationObserver(setting);
         observer.observe(content, config);
-        const observer2 = new MutationObserver(Setting);
+        const observer2 = new MutationObserver(setting);
         observer2.observe(content2, config);
     } else {
-        SetTheme(SettingsStat);
+        setTheme(settingsStandard);
     }
 }
 
-chrome.runtime.onMessage.addListener(() => {
-    console.log("I've got your message");
-    window.location.reload()
-});
-
+chrome.runtime.onMessage.addListener(() => { window.location.reload(); });
