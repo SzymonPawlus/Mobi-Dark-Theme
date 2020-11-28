@@ -3,6 +3,10 @@
   "name": "Mobidziennik Dark Theme",
   "version": "0.5",
   "description":"Dark Theme for Mobidziennik extension",
+  "options_page":"Settings/index.html",
+  "browser_action":{
+    "default_popup":"Popup/index.html"
+  },
   "icons":{
     "512":"img/mobi-logo.png"
   },
@@ -15,6 +19,7 @@
   }
   ],
   "permissions": [
-    "tabs"
+    "tabs",
+    "storage"
   ]
 }

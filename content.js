@@ -5,6 +5,9 @@ const BackColor = "#006b9f"
 const BackHover = "#117caf"
 // MainColor: #111 and FontColor: #eee gives the best results
 
+let def = []
+let defSet = false
+
 const SettingsMobile = [{Selector: "html", Style: "background-color", Color: MainColor, Imp: false},
       {Selector: "body", Style: "color", Color: FontColor, Imp: false},
       {Selector: "#head", Style: "background-color", Color: MainColor, Imp: false},
@@ -109,6 +112,17 @@ function SetTheme(Theme){
 window.onload = Load;
 
 function Load() {
+    chrome.storage.sync.get("value", function (data) {
+        const obj = JSON.parse(JSON.stringify(data));
+        if(obj.value) {
+            SetThemes()
+        }
+
+    });
+
+}
+
+function SetThemes(){
     if (window.location.href.indexOf("mobile") > -1) {
         SetTheme(SettingsMobile)
         let Setting = () => SetTheme(SettingsMobile)
@@ -122,3 +136,9 @@ function Load() {
         SetTheme(SettingsStat);
     }
 }
+
+chrome.runtime.onMessage.addListener(() => {
+    console.log("I've got your message");
+    window.location.reload()
+});
+
