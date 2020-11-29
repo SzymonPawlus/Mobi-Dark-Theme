@@ -1,4 +1,4 @@
-const _mainColor = "#111", _fontColor = "#ccc", _backColor = "#006b9f", _backHover = "#117caf";
+const _mainColor = "#111", _secondColor = "#333", _fontColor = "#ccc", _backColor = "#006b9f", _backHover = "#117caf";
 const config = { attributes: true, childList: false, subtree: false };
 
 const settingsMobile = [
@@ -15,6 +15,7 @@ const settingsMobile = [
     { selectors: [ ".content1" ], style: "color", value: _backColor, important: true },
     { selectors: [ "a.nav-body-elm.act" ], style: "background", value: _backHover, important: true, },
     { selectors: [ ".nav-head-my-account-elm.act" ], style: "background", value: _backHover, important: false, },
+    { selectors: [ "tr.bg-gray" ], style: "background", value: _secondColor, important: false }
 ];
 
 const settingsStandard = [
@@ -31,8 +32,10 @@ const settingsStandard = [
     { selectors: [ "ul.dropdown li a.current" ], style: "background", value: _backHover, important: true, },
     { selectors: [ ".fb_iframe_widget" ], style: "display", value: "none", important: true, },
     { selectors: [ ".wiadomosc_tresc > p > span", ".wiadomosc_tresc > p > strong > span", ".wiadomosc_tresc > p > strong > span > span", "#bottom > div", "#bottom > div > a", ".logo > h1", ".dropdown > li:hover", ".ajax > div > h3" ], style: "color", value: _fontColor, important: true },
-    { selectors: [ ".fright > .button", "#wyszukiwarka > fieldset > input", ".stronnicowanie > a" ], style: "border", value: "solid 1px " + _mainColor, important: true },
-    { selectors: [ ".komorka_biala", ".zasoby", ".okienko_informacyjne" ], style: "background", value: "none", important: true }
+    { selectors: [ ".fright > .button", "#wyszukiwarka > fieldset > input", ".stronnicowanie > a", "#wyszukiwarka > fieldset > label > input", ".plansc_cnt > .plansc_cnt_w > .bx.pz", "a.button", "a.button_right", "span.fc-button", 'input[type="submit"]' ], style: "border", value: "solid 1px " + _mainColor, important: true },
+    { selectors: [ ".komorka_biala", ".zasoby", ".okienko_informacyjne", "#wyszukiwarka > fieldset > label > input" ], style: "background", value: "none", important: true },
+    { selectors: [ ".okno", "#wyszukiwarka > fieldset > label > input" ], style: "box-shadow", value: "0px 0px 10px 0px " + _secondColor, important: true },
+    { selectors: [ ".plansc_godz > div" ], style: "border-top", value: "1px dashed " + _secondColor, important: false }
 ];
 
 function setTheme(theme) {
